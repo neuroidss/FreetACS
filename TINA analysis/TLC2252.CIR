@@ -1,0 +1,67 @@
+* TLC2252 OPERATIONAL AMPLIFIER "MACROMODEL" SUBCIRCUIT
+* CREATED USING PARTS RELEASE 4.03 ON 01/12/95 AT 08:26
+* REV (N/A) (10V MODEL) (LEVEL II)
+* ------------------------------------------------------------------------
+*|(C) Copyright Texas Instruments Incorporated 2007. All rights reserved. |
+*|                                                                        |
+*|This Model is designed as an aid for customers of Texas Instruments.    |
+*|No warranties, either expressed or implied, with respect to this Model  |
+*|or its fitness for a particular purpose is claimed by Texas Instruments |
+*|or the author.  The Model is licensed solely on an "as is" basis.  The  |
+*|entire risk as to its quality and performance is with the customer.     |
+* ------------------------------------------------------------------------
+* CONNECTIONS:   NON-INVERTING INPUT
+*                | INVERTING INPUT
+*                | | POSITIVE POWER SUPPLY
+*                | | | NEGATIVE POWER SUPPLY
+*                | | | | OUTPUT
+*                | | | | |
+.SUBCKT TLC2252  1 2 3 4 5
+*
+C1   11 12 6.043E-12
+C2    6  7 50.00E-12
+CPSR 85 86 7.96E-9
+DCM+ 81 82 DX
+DCM- 83 81 DX
+DC    5 53 DX
+DE   54  5 DX
+DLP  90 91 DX
+DLN  92 90 DX
+DP    4  3 DX
+ECMR 84 99 (2,99) 1
+EGND 99  0 POLY(2) (3,0) (4,0) 0 .5 .5
+EPSR 85 0 POLY(1) (3,4) -1736E-6  173.6E-6
+ENSE 89 2 POLY(1) (88,0) 200E-6  1
+FB 7 99 POLY(6) VB VC VE VLP VLN VPSR 0 200E6 -30E6 30E6 30E6 -30E6 30E6
+GA    6  0 11 12 28.27E-6
+GCM 0  6 10 99 2.635E-9
+GPSR 85 86 (85,86) 100E-6
+GRD1 60 11 (60,11) 28.273E-6
+GRD2 60 12 (60,12) 28.273E-6
+HLIM 90 0 VLIM 1K
+HCMR 80 1 POLY(2) VCM+ VCM- 0 1E2 1E2
+IRP 3 4 34E-6
+ISS   3 10 DC 6.000E-6
+IIO 2 0 .5E-12
+I1 88 0 1E-21
+J1   11  89 10 JX
+J2   12  80 10 JX
+R2    6  9 100.0E3
+RCM 84 81 1K
+RN1 88 0 100
+RO1   8  5 70
+RO2   7 99 50
+RSS  10 99 33.33E6
+VAD 60 4 -.5
+VCM+ 82 99 3.6
+VCM- 83 99 -4.7
+VB    9  0 DC 0
+VC 3 53 DC .656
+VE   54  4 DC .656
+VLIM  7  8 DC 0
+VLP  91  0 DC -.234
+VLN 0 92 DC 7.5
+VPSR 0 86 DC 0
+.MODEL DX D(IS=800.0E-18)
+.MODEL JX PJF(IS=500.0E-15 BETA=360E-6 VTO=-.023 KF=8.6E-18)
+.ENDS
